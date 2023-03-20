@@ -79,7 +79,7 @@ for (let i = 0; i < romoversikt.length; i++) {
 
 const datadato = [];
 for (let i = 0; i < romoversikt.length; i++) {
-  data.push({
+  datadato.push({
     x: [romoversikt[i].romnummer],
     y: [romoversikt[i].antalldato],
     type: 'bar'
