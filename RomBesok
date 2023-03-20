@@ -1,0 +1,24 @@
+  onMount(async () => {
+    await hentData();
+
+    const data = [];
+for (let i = 0; i < romoversikt.length; i++) {
+  data.push({
+    x: [romoversikt[i].romnummer],
+    y: [romoversikt[i].antall],
+    type: 'bar'
+  });
+}
+var layout =  {             
+  xaxis:{
+    type: 'category',
+    title: 'Rom'
+
+  },
+  yaxis:{
+    title: 'Antall besøk',
+  },
+};
+
+    Plotly.newPlot(myDiv, data, layout);
+  });
