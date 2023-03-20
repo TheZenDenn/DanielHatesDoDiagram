@@ -1,0 +1,26 @@
+  onMount(async () => {
+    await hentData();
+
+    const data = [];
+    for (let i = 0; i < feeds.length; i++) {
+  const romIndex = rom.indexOf(feeds[i].field1);
+  if (romIndex >= 0) {
+    romoversikt[romIndex].antall++;
+    data.push({
+      x: [feeds[i].created_at.substr(0,10)],
+      y: [romoversikt[romIndex].antall],
+      type: 'bar',
+      marker: { width: 0.8 }
+    });
+  }
+}
+var layout =  {  
+  xaxis:{
+    title: 'Dato',
+    automargin: 'true',
+  },
+  
+  barmode: 'group',        
+};
+    Plotly.newPlot(myDiv, data, layout);
+  });
