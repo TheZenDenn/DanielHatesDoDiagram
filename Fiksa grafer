@@ -88,21 +88,19 @@ const datadato = [];
   if (romIndex >= 0) {
     romoversikt1[romIndex].antall++;
     datadato.push({
-      x: [feeds[i].created_at.slice(8,10)+"/"+feeds[i].created_at.slice(5,7)+"-"+feeds[i].created_at.slice(0,4)],
-      y: [romoversikt1[romIndex].antall],
+        x: [feeds[i].created_at.slice(8,10)+"/"+feeds[i].created_at.slice(5,7)+"-"+feeds[i].created_at.slice(0,4)],
+        y: [romoversikt1[romIndex].antall],
       type: 'bar',
       marker:{
-    color: 'rgb(65,105,225)'
-  },
+        color: 'rgb(65,105,225)',
+      },
     });
   }
 }
 const datolayout = {
     xaxis:{
         automargin: 'true',
-        type: 'category',
     },
-    barmode: 'group',  
 };
 
 
