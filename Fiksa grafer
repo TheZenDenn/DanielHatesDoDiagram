@@ -102,7 +102,7 @@ const datolayout = {
         automargin: 'true',
         type: 'category',
     },
-    barmode: 'stack',  
+    barmode: 'group',  
 };
 
 
