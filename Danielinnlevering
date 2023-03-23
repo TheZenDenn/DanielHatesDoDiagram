@@ -4,7 +4,7 @@
 <script>   
 import { onMount } from 'svelte' 
 const rom = ["152", "153", "154", "157", "158", "146", "147", "148", "240", "241", "242", "243","234","245", "246","247","231","228","226","230","350","354","336","337","338","339","340","341","321","322","323","324","325"];
-let romoversikt1 = Array.from({ length: rom.length }, (_, i) => ({ romnummer: rom[i], antall: 0 }));
+let romoversikt1 = Array.from({ length: rom.length }, (_, i) => ({ romnummer: rom[i], antall: 0 })); //romversikt = lege av rom[] + antal=0
 let dato="2023-03-16" 
 let totdobesøk=0  
 let feeds=[]   
@@ -76,6 +76,7 @@ for (let i = 0; i < romoversikt.length; i++) {
 }
 var layout = {
     xaxis:{
+        title: 'Dato',
         type: 'category',
     },
 };
@@ -149,13 +150,13 @@ Plotly.newPlot('divdato', datadato, datolayout);
     }
     #divtot {
         position: absolute;
-        top: 820%;
-        left: 300px;
+        top: 1100%;
+        left: 230px;
     }
     #divdato {
         position: absolute;
-        top: 900%;
-        left: 300px;
+        top: 1180%;
+        left: 230px;
     }
 </style>
 <h1>Oversikt over måledata</h1>
@@ -191,6 +192,19 @@ Plotly.newPlot('divdato', datadato, datolayout);
     </tr>        
 {/each}  
  </table>
+
+ <table style="margin-top:380%">
+  <tr>
+  <th>Rom Nummer {dato}</th>
+  <th>Antall Besøk</th>
+  </tr>
+{#each romoversikt as rom}
+  <tr>       
+      <td>{rom.romnummer}</td>
+      <td>{rom.antalldato}</td>         
+  </tr>        
+{/each}  
+</table>
 
 <div id="divtot"></div>
 <div id="divdato"></div>
